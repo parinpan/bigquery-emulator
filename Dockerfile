@@ -1,6 +1,7 @@
 FROM ghcr.io/goccy/go-zetasql:latest
 
 ARG VERSION
+ENV GOTOOLCHAIN=auto
 
 WORKDIR /work
 
