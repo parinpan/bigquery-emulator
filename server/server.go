@@ -14,9 +14,9 @@ import (
 	"golang.org/x/sync/errgroup"
 	"google.golang.org/grpc"
 
-	"github.com/goccy/bigquery-emulator/internal/connection"
-	"github.com/goccy/bigquery-emulator/internal/contentdata"
-	"github.com/goccy/bigquery-emulator/internal/metadata"
+	"github.com/parinpan/bigquery-emulator/internal/connection"
+	"github.com/parinpan/bigquery-emulator/internal/contentdata"
+	"github.com/parinpan/bigquery-emulator/internal/metadata"
 	"github.com/gorilla/mux"
 )
 

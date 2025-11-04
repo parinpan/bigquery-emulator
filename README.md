@@ -1,7 +1,7 @@
 # BigQuery Emulator
 
-[![build and test](https://github.com/goccy/bigquery-emulator/actions/workflows/test.yml/badge.svg)](https://github.com/goccy/bigquery-emulator/actions/workflows/test.yml)
-[![GoDoc](https://godoc.org/github.com/goccy/bigquery-emulator?status.svg)](https://pkg.go.dev/github.com/goccy/bigquery-emulator?tab=doc)
+[![build and test](https://github.com/parinpan/bigquery-emulator/actions/workflows/test.yml/badge.svg)](https://github.com/parinpan/bigquery-emulator/actions/workflows/test.yml)
+[![GoDoc](https://godoc.org/github.com/parinpan/bigquery-emulator?status.svg)](https://pkg.go.dev/github.com/parinpan/bigquery-emulator?tab=doc)
 
 
 BigQuery emulator server implemented in Go.  
@@ -41,7 +41,7 @@ For example, it has the following features.
 - Templated Argument Function
 - JavaScript UDF
 
-If you want to know the specific features supported, please see [here](https://github.com/goccy/go-zetasqlite#status)
+If you want to know the specific features supported, please see [here](https://github.com/parinpan/go-zetasqlite#status)
 
 # Goals and Sponsors
 
@@ -54,7 +54,7 @@ However, this project is a personal project and I develop it on my days off and 
 If Go is installed, you can install the latest version with the following command
 
 ```console
-$ go install github.com/goccy/bigquery-emulator/cmd/bigquery-emulator@latest
+$ go install github.com/parinpan/bigquery-emulator/cmd/bigquery-emulator@latest
 ```
 
 The BigQuery emulator depends on [go-zetasql](https://github.com/goccy/go-zetasql).
@@ -70,10 +70,10 @@ CXX=clang++
 You can also download the docker image with the following command
 
 ```console
-$ docker pull ghcr.io/goccy/bigquery-emulator:latest
+$ docker pull ghcr.io/parinpan/bigquery-emulator:latest
 ```
 
-You can also download the darwin(amd64) and linux(amd64) binaries directly from [releases](https://github.com/goccy/bigquery-emulator/releases)
+You can also download the darwin(amd64) and linux(amd64) binaries directly from [releases](https://github.com/parinpan/bigquery-emulator/releases)
 
 # How to start the standalone server
 
@@ -110,7 +110,7 @@ $ ./bigquery-emulator --project=test
 If you want to use docker image to start emulator, specify like the following.
 
 ```console
-$ docker run -it ghcr.io/goccy/bigquery-emulator:latest --project=test
+$ docker run -it ghcr.io/parinpan/bigquery-emulator:latest --project=test
 ```
 
 * If you are using an M1 Mac ( and Docker Desktop ) you may get a warning. In that case please use `--platform linux/x86_64` option.
@@ -125,7 +125,7 @@ $ ./bigquery-emulator --project=test --data-from-yaml=./server/testdata/data.yam
 [bigquery-emulator] gRPC server listening at 0.0.0.0:9060
 ```
 
-* `server/testdata/data.yaml` is [here](https://github.com/goccy/bigquery-emulator/blob/main/server/testdata/data.yaml)
+* `server/testdata/data.yaml` is [here](https://github.com/parinpan/bigquery-emulator/blob/main/server/testdata/data.yaml)
 
 ### 2. Call endpoint from bq client
 
@@ -191,9 +191,9 @@ result = client.query(sql).to_dataframe(bqstorage_client=read_client)
 # Synopsis
 
 If you use the Go language as a BigQuery client, you can launch the BigQuery emulator on the same process as the testing process.  
-Please imports `github.com/goccy/bigquery-emulator/server` ( and `github.com/goccy/bigquery-emulator/types` ) and you can use `server.New` API to create the emulator server instance.
+Please imports `github.com/parinpan/bigquery-emulator/server` ( and `github.com/parinpan/bigquery-emulator/types` ) and you can use `server.New` API to create the emulator server instance.
 
-See the API reference for more information: https://pkg.go.dev/github.com/goccy/bigquery-emulator
+See the API reference for more information: https://pkg.go.dev/github.com/parinpan/bigquery-emulator
 
 ```go
 package main
@@ -203,8 +203,8 @@ import (
   "fmt"
 
   "cloud.google.com/go/bigquery"
-  "github.com/goccy/bigquery-emulator/server"
-  "github.com/goccy/bigquery-emulator/types"
+  "github.com/parinpan/bigquery-emulator/server"
+  "github.com/parinpan/bigquery-emulator/types"
   "google.golang.org/api/iterator"
   "google.golang.org/api/option"
 )
@@ -293,7 +293,7 @@ SELECT %s([
 
 # Debugging
 
-If you have specified a database file when starting `bigquery-emulator`, you can check the status of the database by using the `zetasqlite-cli` tool. See [here](https://github.com/goccy/go-zetasqlite/tree/main/cmd/zetasqlite-cli#readme) for details.
+If you have specified a database file when starting `bigquery-emulator`, you can check the status of the database by using the `zetasqlite-cli` tool. See [here](https://github.com/parinpan/go-zetasqlite/tree/main/cmd/zetasqlite-cli#readme) for details.
 
 # How it works
 

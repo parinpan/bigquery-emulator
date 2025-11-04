@@ -21,10 +21,10 @@ import (
 	"github.com/apache/arrow/go/v10/arrow"
 	"github.com/apache/arrow/go/v10/arrow/ipc"
 	"github.com/apache/arrow/go/v10/arrow/memory"
-	"github.com/goccy/bigquery-emulator/server"
 	"github.com/goccy/go-json"
 	gax "github.com/googleapis/gax-go/v2"
 	goavro "github.com/linkedin/goavro/v2"
+	"github.com/parinpan/bigquery-emulator/server"
 	"google.golang.org/api/iterator"
 	"google.golang.org/api/option"
 	"google.golang.org/genproto/googleapis/rpc/errdetails"
@@ -33,7 +33,7 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/goccy/bigquery-emulator/types"
+	"github.com/parinpan/bigquery-emulator/types"
 )
 
 var (
