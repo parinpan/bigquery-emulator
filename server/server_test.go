@@ -18,8 +18,6 @@ import (
 	"cloud.google.com/go/bigquery"
 	"cloud.google.com/go/storage"
 	"github.com/fsouza/fake-gcs-server/fakestorage"
-	"github.com/parinpan/bigquery-emulator/server"
-	"github.com/parinpan/bigquery-emulator/types"
 	"github.com/goccy/go-json"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
@@ -27,6 +25,9 @@ import (
 	"google.golang.org/api/googleapi"
 	"google.golang.org/api/iterator"
 	"google.golang.org/api/option"
+
+	"github.com/parinpan/bigquery-emulator/server"
+	"github.com/parinpan/bigquery-emulator/types"
 )
 
 func TestSimpleQuery(t *testing.T) {

@@ -1135,9 +1135,9 @@ func (h *jobsInsertHandler) importFromGCS(ctx context.Context, r *jobsInsertRequ
 	)
 	job.Status = &bigqueryv2.JobStatus{State: "DONE"}
 	job.Statistics = &bigqueryv2.JobStatistics{
-		CreationTime: startTime.Unix(),
-		StartTime:    startTime.Unix(),
-		EndTime:      endTime.Unix(),
+		CreationTime: startTime.UnixMilli(),
+		StartTime:    startTime.UnixMilli(),
+		EndTime:      endTime.UnixMilli(),
 	}
 	conn, err := r.server.connMgr.Connection(ctx, r.project.ID, "")
 	if err != nil {
@@ -1259,9 +1259,9 @@ func (h *jobsInsertHandler) exportToGCS(ctx context.Context, r *jobsInsertReques
 	)
 	job.Status = &bigqueryv2.JobStatus{State: "DONE"}
 	job.Statistics = &bigqueryv2.JobStatistics{
-		CreationTime: startTime.Unix(),
-		StartTime:    startTime.Unix(),
-		EndTime:      endTime.Unix(),
+		CreationTime: startTime.UnixMilli(),
+		StartTime:    startTime.UnixMilli(),
+		EndTime:      endTime.UnixMilli(),
 	}
 	if err := r.project.AddJob(
 		ctx,
@@ -1474,9 +1474,9 @@ func (h *jobsInsertHandler) Handle(ctx context.Context, r *jobsInsertRequest) (*
 			TotalBytesBilled:    totalBytes,
 			TotalBytesProcessed: totalBytes,
 		},
-		CreationTime:        startTime.Unix(),
-		StartTime:           startTime.Unix(),
-		EndTime:             endTime.Unix(),
+		CreationTime:        startTime.UnixMilli(),
+		StartTime:           startTime.UnixMilli(),
+		EndTime:             endTime.UnixMilli(),
 		TotalBytesProcessed: totalBytes,
 	}
 	if err := r.project.AddJob(
@@ -2569,7 +2569,7 @@ const (
 )
 
 func createTableMetadata(ctx context.Context, tx *connection.Tx, server *Server, project *metadata.Project, dataset *metadata.Dataset, table *bigqueryv2.Table) (*bigqueryv2.Table, *ServerError) {
-	now := time.Now().Unix()
+	now := time.Now().UnixMilli()
 	table.Id = fmt.Sprintf("%s:%s.%s", project.ID, dataset.ID, table.TableReference.TableId)
 	table.CreationTime = now
 	table.LastModifiedTime = uint64(now)
